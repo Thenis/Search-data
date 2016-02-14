@@ -1,3 +1,4 @@
+<!-- Code by Thenis(Denis Stoilov)-->
 <form method="get">
 	Info:
 	<input name="info" type="text" />
