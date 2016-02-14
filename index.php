@@ -12,15 +12,14 @@
 
 if (isset($_GET["submit"]) && isset($_GET["hash"])) {
     $files = glob('cdhash*');
-    search_data();
+
 } elseif (isset($_GET["submit"]) && isset($_GET["chatlog"])) {
     $files = glob('chatlog*');
-    search_data();
+
 }
 
 
 
-function search_data() {
     $search = trim(strtoupper(htmlspecialchars($_GET["info"])), "\t.");
 
     $found = false;
@@ -36,7 +35,6 @@ function search_data() {
     if (!$found) {
         echo 'No match found';
     }
-}
 
 
 ?>
