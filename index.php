@@ -4,25 +4,42 @@
 	CD hashlog:
 	<input name="hash" type="radio" />
 	Chatlogs:
-	<input name="chatlog" type="radio" />
+	<input name="beu" type="checkbox" />
+	BASED EU
+	<input name="bna" type="checkbox" />
+	BASED NA
 	<input type="submit" name="submit" value="Check" />
 </form>
-
 <?php
-
-if (isset($_GET["submit"]) && isset($_GET["hash"])) {
-    $files = glob('cdhash*');
-
-} elseif (isset($_GET["submit"]) && isset($_GET["chatlog"])) {
-    $files = glob('chatlog*');
-
+if (isset($_GET["submit"]) && isset($_GET["beu"])) {//EU directory
+    
+        if (isset($_GET["hash"])) {
+                $files = glob('cdhash*');
+                 search_input($files);
+                 
+}       elseif (isset($_GET["chatlog"])) {
+                $files = glob('chatlog*');
+                search_input($files);
+    }
+}
+elseif (isset($_GET["submit"]) && isset($_GET["bna"])) {// NA directory
+	            
+	        if (isset($_GET["hash"])) {
+                $files = glob('cdhash*');
+                 search_input($files);
+                 
+}       elseif (isset($_GET["chatlog"])) {
+                $files = glob('chatlog*');
+                search_input($files);
+    }
 }
 
 
-
-    $search = trim(strtoupper(htmlspecialchars($_GET["info"])), "\t.");
-
-    $found = false;
+function search_input($files) {
+    
+    if (isset($_GET["info"])) {
+    $search = trim(strtoupper(htmlspecialchars(($_GET["info"]))), "\t.");
+    $found = false; 
     foreach ($files as $file) {
         foreach (file($file) as $lines => $line) {
 
@@ -34,7 +51,7 @@ if (isset($_GET["submit"]) && isset($_GET["hash"])) {
     }
     if (!$found) {
         echo 'No match found';
+        }
     }
-
-
+}
 ?>
