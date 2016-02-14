@@ -33,6 +33,9 @@ elseif (isset($_GET["submit"]) && isset($_GET["bna"])) {// NA directory
                 search_input($files);
     }
 }
+else {
+	echo "Invalid input";
+}
 
 
 function search_input($files) {
