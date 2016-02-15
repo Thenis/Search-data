@@ -1,10 +1,10 @@
-<!-- Code by Thenis(Denis Stoilov)-->
 <form method="get">
 	Info:
 	<input name="info" type="text" />
 	CD hashlog:
 	<input name="hash" type="radio" />
 	Chatlogs:
+	<input name="chatlog" type="radio" />
 	<input name="beu" type="checkbox" />
 	BASED EU
 	<input name="bna" type="checkbox" />
@@ -26,16 +26,14 @@ if (isset($_GET["submit"]) && isset($_GET["beu"])) {//EU directory
 elseif (isset($_GET["submit"]) && isset($_GET["bna"])) {// NA directory
 	            
 	        if (isset($_GET["hash"])) {
-                $files = glob('cdhash*');
+                $files = glob('buu*');
                  search_input($files);
                  
 }       elseif (isset($_GET["chatlog"])) {
                 $files = glob('chatlog*');
                 search_input($files);
     }
-}
-else {
-	echo "Invalid input";
+    
 }
 
 
